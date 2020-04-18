@@ -4,7 +4,7 @@ date: "2020-04-18T22:40:32.169Z"
 description: Know how web browsers measure performance
 ---
 
-Building a beautiful, feature-rich website is easier than ever before. Not long ago, you’d have to fire up a text editor and hand-craft a lot of HTML, CSS, and JavaScript. Today, you can use WYSIWYG tools and third-party libraries that make development much simpler. The flip side of this is that it can be hard to see everything that’s going into your website — and the performance can suffer.
+Building amazing, beautiful and feature-rich website is easier than ever before. Not long ago, you’d have to fire up a text-editor and hand-craft a lot of HTML, CSS, and JavaScript for a basic website. Today, you can use tools and third-party libraries that make development of even complex websites/webapps much easier. The flip side of this is that it can be hard to see everything that’s going into your website which can have an impaxt on performance.
 
 The good news is that modern web browsers expose lots of performance data that can help you understand how your web page performs. With the launch of Browser Insights today, we can analyze the performance from the perspective of the web browser and what the end user actually experiences.
 
@@ -15,10 +15,7 @@ The good news is that modern web browsers expose lots of performance data that c
 
  ## Syntax
 
-  <!-- t = performance.now(); -->
-
-
-
+  
 >
 >  t = performance.now();
 >
@@ -35,8 +32,6 @@ The good news is that modern web browsers expose lots of performance data that c
 > console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");   
 >
 
-<!-- ![example of performance.now() vs Date.now()](./example1.png) -->
-
 
 Unlike **Date.now()**, the timestamps returned by **performance.now()** are not limited to one-millisecond resolution. Instead, they represent times as floating-point numbers with up to microsecond precision.
 
@@ -47,8 +42,6 @@ Another notable difference is that the values returned by **performance.now()** 
 
 The ECMAScript Language specification [ECMA-262](https://tc39.es/ecma262/) defines the [Date](https://tc39.es/ecma262/#sec-date-objects) object as a time value representing time in milliseconds since 01 January, 1970 UTC. For most purposes, this definition of time is sufficient as these values represent time to millisecond precision for any instant that is within approximately 285,616 years from 01 January, 1970 UTC.
 
-
-<!-- ![performance.now() vs Date.now()](./comparison.png) -->
 
 
 > **So just to compare, here are the sorts of values you'd get back:**
@@ -61,13 +54,6 @@ You'll notice the two above values are many orders of magnitude different. **per
 
 
 
-
-
-
-
-
-
-<!-- ![example of performance.now() vs Date.now()](./example2.png) -->
 
 > var mark_start = Date.now();    
 > doTask(); // Some task    
@@ -92,8 +78,6 @@ For certain tasks this definition of time may not be sufficient as it does not a
 To offer protection against timing attacks and fingerprinting, the precision of performance.now() might get rounded depending on browser settings.
 In Firefox, the privacy.reduceTimerPrecision preference is enabled by default and defaults to 1ms.
 
-
-<!-- ![example of performance.now() vs Date.now()](./example3.png) -->
 
 
 > // reduced time precision (1ms) in Firefox 60  
