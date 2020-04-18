@@ -5,10 +5,10 @@ module.exports = {
       name: `Parichay Batra`,
       summary: ` who loves ranting about Javascript concepts but secretly loves working with it.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `Parichay batra's Blog`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `init.js`,
       instagram: `init.js`
     },
   },
