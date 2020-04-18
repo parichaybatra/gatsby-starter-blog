@@ -16,17 +16,31 @@ The good news is that modern web browsers expose lots of performance data that c
  ## Syntax
 
   <!-- t = performance.now(); -->
-  ![performance.now() syntax](./performance_syntax.svg)
 
 
+
+>
+>  t = performance.now();
+>
 > **NOTE:** The [High Resolution Timer](https://w3c.github.io/hr-time/) was added by the [WebPerf Working Group](https://www.w3.org/webperf/) to allow measurement in the Web Platform that's more precise than what we've had with +new Date and the newer Date.now()
 
 
 ## Still measuring performance in milliseconds?
 
-Unlike other timing data available to JavaScript (for example Date.now), the timestamps returned by performance.now() are not limited to one-millisecond resolution. Instead, they represent times as floating-point numbers with up to microsecond precision.
 
-Also unlike Date.now(), the values returned by performance.now() always increase at a constant rate, independent of the system clock (which might be adjusted manually or skewed by software like NTP). Otherwise, performance.timing.navigationStart + performance.now() will be approximately equal to Date.now().
+>
+> var t0 = performance.now();   
+> doSomething();   
+> var t1 = performance.now();   
+> console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");   
+>
+
+<!-- ![example of performance.now() vs Date.now()](./example1.png) -->
+
+
+Unlike **Date.now()**, the timestamps returned by **performance.now()** are not limited to one-millisecond resolution. Instead, they represent times as floating-point numbers with up to microsecond precision.
+
+Another notable difference is that the values returned by **performance.now()** always increase at a constant rate, independent of the system clock (which might be adjusted manually or skewed by software like NTP). Otherwise, **performance.timing.navigationStart** + **performance.now()** will be approximately equal to **Date.now()**.
 
 
 ### Comparison
@@ -34,23 +48,30 @@ Also unlike Date.now(), the values returned by performance.now() always increase
 The ECMAScript Language specification [ECMA-262](https://tc39.es/ecma262/) defines the [Date](https://tc39.es/ecma262/#sec-date-objects) object as a time value representing time in milliseconds since 01 January, 1970 UTC. For most purposes, this definition of time is sufficient as these values represent time to millisecond precision for any instant that is within approximately 285,616 years from 01 January, 1970 UTC.
 
 
-![performance.now() vs Date.now()](./comparison.png)
+<!-- ![performance.now() vs Date.now()](./comparison.png) -->
+
+
+> **So just to compare, here are the sorts of values you'd get back:**
+> Date.now()         //  1587243955972   
+> performance.now()  //  20303.427000007   
+>  
+
 
 You'll notice the two above values are many orders of magnitude different. **performance.now()** is a measurement of floating point milliseconds since that particular page started to load (*the performance.timing.navigationStart timeStamp to be specific*). You could argue that it could have been the number of milliseconds since the [unix epoch](https://en.wikipedia.org/wiki/Unix_time), but rarely does a web app need to know the distance between now and 1970. This number stays relative to the page because you'll be comparing two or more measurements against eachother.
 
 
 
-![example of performance.now() vs Date.now()](./example1.png)
-
-
-Unlike **Date.now()**, the timestamps returned by **performance.now()** are not limited to one-millisecond resolution. Instead, they represent times as floating-point numbers with up to microsecond precision.
-
-Also unlike **Date.now()**, the values returned by **performance.now()** always increase at a constant rate, independent of the system clock (which might be adjusted manually or skewed by software like NTP). Otherwise, **performance.timing.navigationStart** + **performance.now()** will be approximately equal to **Date.now()**.
 
 
 
 
-![example of performance.now() vs Date.now()](./example2.png)
+
+
+<!-- ![example of performance.now() vs Date.now()](./example2.png) -->
+
+> var mark_start = Date.now();    
+> doTask(); // Some task    
+> var duration = Date.now() - mark_start;    
 
 
 For certain tasks this definition of time may not be sufficient as it does not allow for sub-millisecond resolution and is subject to system clock skew. For example:
@@ -73,6 +94,22 @@ In Firefox, the privacy.reduceTimerPrecision preference is enabled by default an
 
 
 ![example of performance.now() vs Date.now()](./example3.png)
+
+
+> // reduced time precision (1ms) in Firefox 60  
+> performance.now();  
+> // 8781416  
+> // 8781815  
+> // 8782206  
+> // ...  
+>  
+>  
+> // reduced time precision with `privacy.resistFingerprinting` enabled  
+> performance.now();  
+> // 8865400  
+> // 8866200  
+> // 8866700  
+> // ...  
 
 In Firefox, you can also enable privacy.resistFingerprinting — this changes the precision to 100ms or the value of privacy.resistFingerprinting.reduceTimerPrecision.microseconds, whichever is larger.
 
