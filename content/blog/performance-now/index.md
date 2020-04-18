@@ -93,7 +93,7 @@ To offer protection against timing attacks and fingerprinting, the precision of 
 In Firefox, the privacy.reduceTimerPrecision preference is enabled by default and defaults to 1ms.
 
 
-![example of performance.now() vs Date.now()](./example3.png)
+<!-- ![example of performance.now() vs Date.now()](./example3.png) -->
 
 
 > // reduced time precision (1ms) in Firefox 60  
