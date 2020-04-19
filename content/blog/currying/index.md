@@ -108,7 +108,7 @@ See below explaination to get a clear picture
 > // and preset the value of x as 2,
 > // which we passed in the argument.
 >
-> let multiplyByTwo = function () {   
+> let multiplyByTwo = function (y) {   
 >    let x = 2;   
 >    console.log(x*y);   
 > }   
