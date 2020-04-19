@@ -4,7 +4,7 @@ date: "2020-04-18T22:40:32.169Z"
 description: Know how web browsers measure performance
 ---
 
-Building amazing, beautiful and feature-rich website is easier than ever before. Not long ago, you’d have to fire up a text-editor and hand-craft a lot of HTML, CSS, and JavaScript for a basic website. Today, you can use tools and third-party libraries that make development of even complex websites/webapps much easier. The flip side of this is that it can be hard to see everything that’s going into your website which can have an impaxt on performance.
+Building appealing, user-friendly and feature-rich website is easier than ever before. Not long ago, you’d have to fire up a text-editor and hand-craft a lot of HTML, CSS, and JavaScript for a basic website. Today, you can use tools and third-party libraries that make development of even complex websites/webapps much easier. The flip side of this is that it can be hard to see everything that’s going into your website which can have an impact on performance.
 
 The good news is that modern web browsers expose lots of performance data that can help you understand how your web page performs. With the launch of Browser Insights today, we can analyze the performance from the perspective of the web browser and what the end user actually experiences.
 
