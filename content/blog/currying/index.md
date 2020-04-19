@@ -73,7 +73,7 @@ Now, that we have some basic understanding of what Currying actually does, let's
 
 
 > <pre>
->  let multiply = function () {
+>  let multiply = function (x,y) {
 >  console.log(x*y);
 >  }  
 >    
