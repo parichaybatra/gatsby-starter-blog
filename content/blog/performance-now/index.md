@@ -108,3 +108,7 @@ In summary, **performance.now()** is...
  - relative to the **navigationStart** of the page rather than to the UNIX epoch
  - not skewed when the system time changes
  - available in all major browsers Chrome 24+, Edge 12+,  Firefox 15+, and IE10.
+
+If you have any questions regarding this post or anything I should add, correct or remove, feel free to get in touch at my instagram handle [@init.js](https://www.instagram.com/init.js/)
+
+Thanks !!!

@@ -36,21 +36,22 @@ We’ll create a helper function curry(f) that performs currying for a two-argum
 
   
 >  <pre> 
->  function curry(f) { // curry(f) does the currying transform   
->  return function(a) {   
->    return function(b) {   
->      return f(a, b);   
->    };   
->  };   
->}   
+> function curry(f) { 
+> // curry(f) does the currying transform
+> return function(a) {
+>   return function(b) {
+>     return f(a, b);
+>    };
+>  }; 
+> } 
 >   
->// usage   
->function sum(a, b) {   
->  return a + b;   
->}   
+>// usage
+>function sum(a, b) {
+>  return a + b;
+>}
 >   
->let curriedSum = curry(sum);   
->console.log(curriedSum(1)(2) ); // 3   
+>let curriedSum = curry(sum);
+>console.log(curriedSum(1)(2) ); // 3
 > </pre>
 
 
@@ -71,18 +72,24 @@ Now, that we have some basic understanding of what Currying actually does, let's
 ## Currying using bind()
 
 
-> <pre>   
->  let multiply = function () {   
->  console.log(x*y);     
->  }   
+> <pre>
+>  let multiply = function () {
+>  console.log(x*y);
+>  }  
 >    
->    let multiplyByTwo = multiply.bind(this,2);   
->    multiplyByTwo(5); // 10    
->    let multiplyByThree = multiply.bind(this,3);   
->    multiplyByThree(5) // 15   
->    let multiplyByFour = multiply.bind(this,4);    
->    multiplyByFour(5) // 20;    
->    .... and so on   
+> let multiplyByTwo 
+>        = multiply.bind(this,2);
+> multiplyByTwo(5); // 10
+>
+> let multiplyByThree 
+>        = multiply.bind(this,3);
+> multiplyByThree(5) // 15
+>
+> let multiplyByFour 
+>        = multiply.bind(this,4);
+> multiplyByFour(5) // 20;
+>
+> .... and so on
 > </pre>   
 
 ![How does this even work](https://i.imgflip.com/3x9d11.jpg)
@@ -93,9 +100,14 @@ Since bind method creates a copy of the method which can be invoked later, using
 See below explaination to get a clear picture
 
 > <pre>   
-> let multiplyByTwo = multiply.bind(this,2);      
-> // this bind method created a copy of this multiply method
-> // and preset the value of x as 2, which we passed in the argument.
+> let multiplyByTwo = 
+>       multiply.bind(this,2);     
+> 
+> // this bind method created 
+> // a copy of this multiply method
+> // and preset the value of x as 2,
+> // which we passed in the argument.
+>
 > let multiplyByTwo = function () {   
 >    let x = 2;   
 >    console.log(x*y);   
@@ -120,14 +132,18 @@ A closure is the combination of a function bundled together (enclosed) with refe
 >   }
 > 
 >    multiply(2)(3); // 6
->    // and similarly we can create functions here also
->    let multiplyByTwo = multiply(2);   
->    multiplyByTwo(5); // 10    
->    let multiplyByThree = multiply(3);   
->    multiplyByThree(5) // 15   
->    let multiplyByFour = multiply(4);    
->    multiplyByFour(5) // 20;    
->    .... and so on   
+>    // and similarly we can
+>     //create functions here also
+>
+>    let multiplyByTwo = multiply(2);
+>    multiplyByTwo(5); // 10
+>
+>    let multiplyByThree = multiply(3);
+>    multiplyByThree(5) // 15
+>
+>    let multiplyByFour = multiply(4);
+>    multiplyByFour(5) // 20;
+>    .... and so on
 > </pre>  
 
 In this function, when new finction is returned, this inner function will still have access to outer variable. So just like our previous example, this is like pre-setting the value of x here.
