@@ -9,7 +9,7 @@ module.exports = {
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       twitter: `init.js`,
-      instagram: `init.js`
+      instagram: `init.js`,
     },
   },
   plugins: [
@@ -77,6 +77,7 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    "gatsby-plugin-dark-mode",
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
